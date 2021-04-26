@@ -3,6 +3,11 @@ namespace SpriteKind {
     export const NPC2 = SpriteKind.create()
     export const NPC3 = SpriteKind.create()
 }
+function right () {
+    if (controller.right.isPressed()) {
+        mySprite = sprites.create(assets.image`myImage0`, SpriteKind.Player)
+    }
+}
 scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile0`, function (sprite, location) {
     if (Level == 1) {
         if (TT1 != 1) {
@@ -90,6 +95,22 @@ scene.onOverlapTile(SpriteKind.Player, assets.tile`tile14`, function (sprite, lo
         mySprite.vy = -150
     }
 })
+function Staisis () {
+    if (controller.anyButton.isPressed()) {
+        pause(2000)
+        animation.runImageAnimation(
+        mySprite,
+        assets.animation`myAnim1`,
+        5000,
+        false
+        )
+    }
+}
+function left () {
+    if (controller.left.isPressed()) {
+        mySprite = sprites.create(assets.image`myImage0`, SpriteKind.Player)
+    }
+}
 sprites.onOverlap(SpriteKind.Player, SpriteKind.NPC2, function (sprite, otherSprite) {
     if (Level == 1 && TT2 == 0) {
         game.showLongText("*Slime bounces to a stop* Hello there!!!", DialogLayout.Bottom)
@@ -129,16 +150,6 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.NPC3, function (sprite, otherSpr
     	
     }
 })
-function Playeranimation () {
-    if (!(controller.anyButton.isPressed())) {
-        animation.runMovementAnimation(
-        mySprite,
-        animation.animationPresets(animation.bobbing),
-        2000,
-        true
-        )
-    }
-}
 scene.onOverlapTile(SpriteKind.Player, assets.tile`tile11`, function (sprite, location) {
     if (controller.A.isPressed()) {
         mySprite.vy = -150
@@ -195,11 +206,11 @@ let Music = 0
 let NPC3: Sprite = null
 let NPC1: Sprite = null
 let NPC2: Sprite = null
-let mySprite: Sprite = null
 let TT3 = 0
 let TT2 = 0
 let TT1 = 0
 let Level = 0
+let mySprite: Sprite = null
 scene.setBackgroundColor(15)
 game.splash("ERR 404:", "RESTART INITIATED")
 game.splash("A Horror Platformer by:", "Team Huuuuuuuuumins")
@@ -209,6 +220,9 @@ game.showLongText("You bought a retro platformer called Jumpy Block", DialogLayo
 game.showLongText("It appeared that 3 Million people had bought it but it had no reviews or ratings, probably some kind of glitch.", DialogLayout.Center)
 game.showLongText("You turn on your new game,\"Welcome to Jumpy Block! Press A to begin your jumping experience!\"", DialogLayout.Center)
 GameStart()
+forever(function () {
+    Staisis()
+})
 forever(function () {
     if (Music == 1) {
         music.playMelody("C5 A G F A G F D ", 120)
