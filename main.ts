@@ -5,18 +5,45 @@ namespace SpriteKind {
 }
 scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile0`, function (sprite, location) {
     if (Level == 1) {
+        if (TT1 != 1) {
+            TT1 = 1
+        }
+        if (TT2 != 1) {
+            TT2 = 1
+        }
+        if (TT3 != 1) {
+            TT3 = 1
+        }
         game.showLongText("\"Congratulations on beating level 1!\" *You swear you heard a crash in your yard* \"Press A to Start Level 2!", DialogLayout.Full)
         game.splash("ERR404")
         game.splash("Restart Initiated:", "Please Retry")
         tiles.placeOnTile(mySprite, tiles.getTileLocation(1, 14))
         Level = 2
     } else if (Level == 2) {
+        if (TT1 != 2) {
+            TT1 = 2
+        }
+        if (TT2 != 2) {
+            TT2 = 2
+        }
+        if (TT3 != 2) {
+            TT3 = 2
+        }
         game.showLongText("\"Congratulations on beating level 1!\" *You think you hear a window downstairs break* \"Press A to Start Level 2!", DialogLayout.Full)
         game.splash("ERR404")
         game.splash("Rest@rt 1niti@ted:", "Ple@se Retry")
         tiles.placeOnTile(mySprite, tiles.getTileLocation(1, 14))
         Level = 3
     } else if (Level == 3) {
+        if (TT1 != 3) {
+            TT1 = 3
+        }
+        if (TT2 != 3) {
+            TT2 = 3
+        }
+        if (TT3 != 3) {
+            TT3 = 3
+        }
         Level = 4
         game.showLongText("\"Congratulations on beating level 1!\" *You hear the door to your room creak open* \"Press A to Start Level 2!", DialogLayout.Full)
         game.splash("ERR404")
@@ -24,6 +51,15 @@ scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile0`, function (sprite, l
         NPC2.setImage(assets.image`myImage2`)
         animation.stopAnimation(animation.AnimationTypes.All, NPC2)
     } else if (Level == 4) {
+        if (TT1 != 3) {
+            TT1 = 3
+        }
+        if (TT2 != 3) {
+            TT2 = 3
+        }
+        if (TT3 != 3) {
+            TT3 = 3
+        }
         NPC1.setImage(assets.image`myImage`)
         animation.stopAnimation(animation.AnimationTypes.All, NPC1)
         tiles.placeOnTile(mySprite, tiles.getTileLocation(1, 14))
@@ -77,23 +113,32 @@ scene.onOverlapTile(SpriteKind.Player, assets.tile`tile3`, function (sprite, loc
     Respawn()
 })
 sprites.onOverlap(SpriteKind.Player, SpriteKind.NPC3, function (sprite, otherSprite) {
-    let TT3 = 0
     if (Level == 1 && TT3 == 0) {
         game.showLongText("Your New", DialogLayout.Bottom)
-        TT2 = 1
+        TT3 = 1
     } else if (Level == 2 && TT3 == 1) {
         game.showLongText("Your still here", DialogLayout.Bottom)
-        TT2 = 2
+        TT3 = 2
     } else if (Level == 3 && TT3 == 2) {
         game.showLongText("*whispers to self* They usually don't last this long...", DialogLayout.Bottom)
-        TT2 = 3
+        TT3 = 3
     } else if (Level == 4 && TT3 == 3) {
         game.showLongText("Chuckles softly", DialogLayout.Bottom)
-        TT2 = 4
+        TT3 = 4
     } else {
     	
     }
 })
+function Playeranimation () {
+    if (!(controller.anyButton.isPressed())) {
+        animation.runMovementAnimation(
+        mySprite,
+        animation.animationPresets(animation.bobbing),
+        2000,
+        true
+        )
+    }
+}
 scene.onOverlapTile(SpriteKind.Player, assets.tile`tile11`, function (sprite, location) {
     if (controller.A.isPressed()) {
         mySprite.vy = -150
@@ -124,6 +169,7 @@ function GameStart () {
     mySprite.ay = 480
     tiles.placeOnRandomTile(NPC1, assets.tile`myTile1`)
     tiles.placeOnRandomTile(NPC2, assets.tile`Temporary asset`)
+    tiles.placeOnRandomTile(NPC3, sprites.castle.saplingPine)
     Level = 1
     Music = 1
     animation.runImageAnimation(
@@ -147,11 +193,12 @@ function GameStart () {
 }
 let Music = 0
 let NPC3: Sprite = null
-let TT2 = 0
-let TT1 = 0
 let NPC1: Sprite = null
 let NPC2: Sprite = null
 let mySprite: Sprite = null
+let TT3 = 0
+let TT2 = 0
+let TT1 = 0
 let Level = 0
 scene.setBackgroundColor(15)
 game.splash("ERR 404:", "RESTART INITIATED")
