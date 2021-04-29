@@ -3,11 +3,6 @@ namespace SpriteKind {
     export const NPC2 = SpriteKind.create()
     export const NPC3 = SpriteKind.create()
 }
-function right () {
-    if (controller.right.isPressed()) {
-        mySprite = sprites.create(assets.image`myImage0`, SpriteKind.Player)
-    }
-}
 scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile0`, function (sprite, location) {
     if (Level == 1) {
         if (TT1 != 1) {
@@ -22,8 +17,9 @@ scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile0`, function (sprite, l
         game.showLongText("\"Congratulations on beating level 1!\" *You swear you heard a crash in your yard* \"Press A to Start Level 2!", DialogLayout.Full)
         game.splash("ERR404")
         game.splash("Restart Initiated:", "Please Retry")
-        tiles.placeOnTile(mySprite, tiles.getTileLocation(1, 14))
+        tiles.placeOnTile(mySprite, tiles.getTileLocation(4, 4))
         Level = 2
+        GlitchA = 1
     } else if (Level == 2) {
         if (TT1 != 2) {
             TT1 = 2
@@ -37,7 +33,11 @@ scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile0`, function (sprite, l
         game.showLongText("\"Congratulations on beating level 1!\" *You think you hear a window downstairs break* \"Press A to Start Level 2!", DialogLayout.Full)
         game.splash("ERR404")
         game.splash("Rest@rt 1niti@ted:", "Ple@se Retry")
-        tiles.placeOnTile(mySprite, tiles.getTileLocation(1, 14))
+        tiles.setTilemap(tilemap`level2`)
+        mySprite2 = sprites.create(assets.image`myImage1`, SpriteKind.Player)
+        tiles.placeOnTile(mySprite, tiles.getTileLocation(4, 4))
+        GJ1 = 0
+        GlitchA = 0
         Level = 3
     } else if (Level == 3) {
         if (TT1 != 3) {
@@ -67,7 +67,7 @@ scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile0`, function (sprite, l
         }
         NPC1.setImage(assets.image`myImage`)
         animation.stopAnimation(animation.AnimationTypes.All, NPC1)
-        tiles.placeOnTile(mySprite, tiles.getTileLocation(1, 14))
+        tiles.placeOnTile(mySprite, tiles.getTileLocation(4, 4))
     } else {
         game.splash("ERR666")
         game.splash("Failure:", "Game Executed")
@@ -93,24 +93,9 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.NPC, function (sprite, otherSpri
 scene.onOverlapTile(SpriteKind.Player, assets.tile`tile14`, function (sprite, location) {
     if (controller.A.isPressed()) {
         mySprite.vy = -150
+        GlitchJump1()
     }
 })
-function Staisis () {
-    if (controller.anyButton.isPressed()) {
-        pause(2000)
-        animation.runImageAnimation(
-        mySprite,
-        assets.animation`myAnim1`,
-        5000,
-        false
-        )
-    }
-}
-function left () {
-    if (controller.left.isPressed()) {
-        mySprite = sprites.create(assets.image`myImage0`, SpriteKind.Player)
-    }
-}
 sprites.onOverlap(SpriteKind.Player, SpriteKind.NPC2, function (sprite, otherSprite) {
     if (Level == 1 && TT2 == 0) {
         game.showLongText("*Slime bounces to a stop* Hello there!!!", DialogLayout.Bottom)
@@ -153,18 +138,26 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.NPC3, function (sprite, otherSpr
 scene.onOverlapTile(SpriteKind.Player, assets.tile`tile11`, function (sprite, location) {
     if (controller.A.isPressed()) {
         mySprite.vy = -150
+        GlitchJump1()
     }
 })
 function Respawn () {
-    mySprite = sprites.create(assets.image`myImage0`, SpriteKind.Player)
+    if (Level == 1) {
+        mySprite = sprites.create(assets.image`myImage0`, SpriteKind.Player)
+    } else if (Level == 2) {
+        mySprite = sprites.create(assets.image`myImage0`, SpriteKind.Player)
+    } else if (Level == 3) {
+        mySprite = sprites.create(assets.image`myImage1`, SpriteKind.Player)
+    }
     scene.cameraFollowSprite(mySprite)
     controller.moveSprite(mySprite, 100, 0)
     mySprite.ay = 480
-    tiles.placeOnTile(mySprite, tiles.getTileLocation(1, 14))
+    tiles.placeOnTile(mySprite, tiles.getTileLocation(4, 4))
 }
 scene.onOverlapTile(SpriteKind.Player, assets.tile`tile5`, function (sprite, location) {
     if (controller.A.isPressed()) {
         mySprite.vy = -150
+        GlitchJump1()
     }
 })
 function GameStart () {
@@ -174,7 +167,7 @@ function GameStart () {
     NPC1 = sprites.create(assets.image`slime1`, SpriteKind.NPC)
     NPC2 = sprites.create(assets.image`slime`, SpriteKind.NPC2)
     NPC3 = sprites.create(assets.image`myImage3`, SpriteKind.NPC3)
-    tiles.placeOnTile(mySprite, tiles.getTileLocation(1, 14))
+    tiles.placeOnTile(mySprite, tiles.getTileLocation(4, 4))
     scene.cameraFollowSprite(mySprite)
     controller.moveSprite(mySprite, 100, 0)
     mySprite.ay = 480
@@ -202,15 +195,29 @@ function GameStart () {
     true
     )
 }
+function GlitchJump1 () {
+    if (GlitchA == 1) {
+        mySprite.setImage(assets.image`myImage1`)
+        GJ1 = 1
+        GlitchA = 0
+    } else if (GJ1 == 1) {
+        mySprite.setImage(assets.image`myImage0`)
+        GJ1 = 0
+        GlitchA = 1
+    }
+}
 let Music = 0
 let NPC3: Sprite = null
 let NPC1: Sprite = null
 let NPC2: Sprite = null
+let GJ1 = 0
+let mySprite2: Sprite = null
+let GlitchA = 0
+let mySprite: Sprite = null
 let TT3 = 0
 let TT2 = 0
 let TT1 = 0
 let Level = 0
-let mySprite: Sprite = null
 scene.setBackgroundColor(15)
 game.splash("ERR 404:", "RESTART INITIATED")
 game.splash("A Horror Platformer by:", "Team Huuuuuuuuumins")
@@ -221,9 +228,6 @@ game.showLongText("It appeared that 3 Million people had bought it but it had no
 game.showLongText("You turn on your new game,\"Welcome to Jumpy Block! Press A to begin your jumping experience!\"", DialogLayout.Center)
 GameStart()
 forever(function () {
-    Staisis()
-})
-forever(function () {
     if (Music == 1) {
         music.playMelody("C5 A G F A G F D ", 120)
     } else if (Music == 2) {
@@ -233,4 +237,7 @@ forever(function () {
     } else {
     	
     }
+})
+forever(function () {
+	
 })

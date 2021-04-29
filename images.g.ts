@@ -125,25 +125,6 @@ f e e e 2 e d e 2 f e e b f e f
 . . . 2 2 2 f f f f b b b c . . 
 . . . . . 2 2 2 2 2 c c c 2 . . 
 `;
-            case "image9":
-            case "myImage1":return img`
-6 f f 6 7 7 f f f f f 6 f f f f 
-7 6 7 7 4 4 7 4 2 2 2 2 2 7 2 f 
-7 6 4 4 7 7 6 6 7 7 6 2 2 2 2 f 
-f 6 4 7 6 6 2 6 2 2 6 7 6 2 2 f 
-f 4 6 7 2 6 2 2 7 2 2 2 2 2 2 f 
-f 7 7 2 2 2 2 2 2 6 6 2 2 2 7 f 
-7 4 7 2 1 1 2 2 2 7 2 1 1 2 6 f 
-7 4 2 6 2 2 2 2 2 2 7 2 2 2 2 f 
-f 4 2 7 2 2 2 f f f 2 6 2 2 2 f 
-f 6 2 2 7 2 2 2 2 2 2 2 2 2 2 f 
-f 4 2 2 7 2 2 2 2 7 2 2 2 2 5 f 
-f 2 7 2 2 2 7 2 2 2 2 2 2 5 5 f 
-f 2 6 2 2 2 2 2 2 2 2 2 5 5 5 f 
-f 2 2 2 2 2 6 2 2 2 2 2 5 5 5 f 
-f 2 2 2 2 2 7 2 2 5 5 5 5 5 5 f 
-f f f 6 f f f f f f f f f f f f 
-`;
             case "image8":
             case "myImage0":return img`
 f f f f f f f f f f f f f f f f 
@@ -243,6 +224,44 @@ f b a a a a a a a a a a a a a f
 f b b a a a a a a a a a a a a f 
 f b b b a a a a a a a a a a a f 
 f f f f f f f f f f f f f f f f 
+`;
+            case "image13":
+            case "myImage4":return img`
+f f f f f f f f f f f f f f f f 
+f 2 2 2 2 2 2 2 4 4 4 4 4 4 4 f 
+f 2 2 2 2 2 2 2 2 2 2 4 4 4 4 f 
+f 2 2 2 2 2 2 2 2 2 2 4 4 4 4 f 
+f 2 2 2 2 2 2 2 2 2 2 2 2 4 4 f 
+f 2 2 2 2 2 2 2 2 2 2 2 2 4 4 f 
+f 2 2 f 1 2 2 2 2 2 f 1 2 4 4 f 
+f 2 2 2 2 2 f 2 f 2 2 2 2 2 4 f 
+f 2 2 2 2 2 f f f 2 2 2 2 2 4 f 
+f 2 2 2 2 2 2 2 2 2 2 2 2 2 4 f 
+f 5 2 2 2 2 2 2 2 2 2 2 2 2 4 f 
+f 5 5 2 2 2 2 2 2 2 2 2 2 2 2 f 
+f 5 5 5 2 2 2 2 2 2 2 2 2 2 2 f 
+f 5 5 5 2 2 2 2 2 2 2 2 2 2 2 f 
+f 5 5 5 5 5 5 2 2 2 2 2 2 2 2 f 
+f f f f f f f f f f f f f f f f 
+`;
+            case "image9":
+            case "myImage1":return img`
+6 f f 6 7 7 f f f f f 6 f f f f 
+7 6 7 7 4 4 7 4 2 2 2 2 2 7 2 f 
+7 6 4 4 7 7 6 6 7 7 6 2 2 2 2 f 
+f 6 4 7 6 6 2 6 2 2 6 7 6 2 2 f 
+f 4 6 7 2 6 2 2 7 2 2 2 2 2 2 f 
+f 7 7 2 2 2 2 2 2 6 6 2 2 2 7 f 
+7 4 7 2 1 1 2 2 2 7 2 1 1 2 6 f 
+7 4 2 6 2 2 2 2 2 2 7 2 2 2 2 f 
+f 4 2 7 2 2 2 f f f 2 6 2 2 2 f 
+f 6 2 2 7 2 2 2 2 2 2 2 2 2 2 f 
+f 4 2 2 7 2 2 2 2 7 2 2 2 2 5 f 
+f 2 7 2 2 2 7 2 2 2 2 2 2 5 5 f 
+f 2 6 2 2 2 2 2 2 2 2 2 5 5 5 f 
+f 2 2 2 2 2 6 2 2 2 2 2 5 5 5 f 
+f 2 2 2 2 2 7 2 2 5 5 5 5 5 5 f 
+f f f 6 f f f f f f f f f f f f 
 `;
         }
         return null;
