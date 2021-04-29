@@ -263,6 +263,25 @@ f 2 2 2 2 2 6 2 2 2 2 2 5 5 5 f
 f 2 2 2 2 2 7 2 2 5 5 5 5 5 5 f 
 f f f 6 f f f f f f f f f f f f 
 `;
+            case "image14":
+            case "myImage5":return img`
+6 f f 6 7 7 f f f f f 6 f f f f 
+7 6 7 7 d d 7 d 1 1 1 1 1 7 1 f 
+7 6 d d 7 7 6 6 7 7 6 1 1 1 1 f 
+f 6 d 7 6 6 1 6 1 1 6 7 6 1 1 f 
+f d 6 7 1 6 1 1 7 1 1 1 1 1 1 f 
+f 7 7 1 1 1 1 1 1 6 6 1 1 1 7 f 
+7 d 7 1 2 2 1 1 1 7 2 2 1 1 6 f 
+7 d 1 6 1 1 1 1 1 1 7 1 1 1 1 f 
+f d 1 7 1 1 1 f f f 1 6 1 1 1 f 
+f 6 1 1 7 1 1 1 1 1 1 1 1 1 1 f 
+f d 1 1 7 1 1 1 1 7 1 1 1 1 b f 
+f 1 7 1 1 1 7 1 1 1 1 1 1 b b f 
+f 1 6 1 1 1 1 1 1 1 1 1 b b b f 
+f 1 1 1 1 1 6 1 1 1 1 1 b b b f 
+f 1 1 1 1 1 7 1 1 b b b b b b f 
+f f f 6 f f f f f f f f f f f f 
+`;
         }
         return null;
     })

@@ -34,7 +34,7 @@ scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile0`, function (sprite, l
         game.splash("ERR404")
         game.splash("Rest@rt 1niti@ted:", "Ple@se Retry")
         tiles.setTilemap(tilemap`level2`)
-        mySprite2 = sprites.create(assets.image`myImage1`, SpriteKind.Player)
+        mySprite = sprites.create(assets.image`myImage1`, SpriteKind.Player)
         tiles.placeOnTile(mySprite, tiles.getTileLocation(4, 4))
         GJ1 = 0
         GlitchA = 0
@@ -68,7 +68,8 @@ scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile0`, function (sprite, l
         NPC1.setImage(assets.image`myImage`)
         animation.stopAnimation(animation.AnimationTypes.All, NPC1)
         tiles.placeOnTile(mySprite, tiles.getTileLocation(4, 4))
-    } else {
+        Level = 5
+    } else if (Level == 5) {
         game.splash("ERR666")
         game.splash("Failure:", "Game Executed")
     }
@@ -93,6 +94,7 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.NPC, function (sprite, otherSpri
 scene.onOverlapTile(SpriteKind.Player, assets.tile`tile14`, function (sprite, location) {
     if (controller.A.isPressed()) {
         mySprite.vy = -150
+    } else if (Level == 2) {
         GlitchJump1()
     }
 })
@@ -138,6 +140,7 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.NPC3, function (sprite, otherSpr
 scene.onOverlapTile(SpriteKind.Player, assets.tile`tile11`, function (sprite, location) {
     if (controller.A.isPressed()) {
         mySprite.vy = -150
+    } else if (Level == 2) {
         GlitchJump1()
     }
 })
@@ -148,6 +151,8 @@ function Respawn () {
         mySprite = sprites.create(assets.image`myImage0`, SpriteKind.Player)
     } else if (Level == 3) {
         mySprite = sprites.create(assets.image`myImage1`, SpriteKind.Player)
+    } else if (Level == 4) {
+        mySprite = sprites.create(assets.image`myImage5`, SpriteKind.Player)
     }
     scene.cameraFollowSprite(mySprite)
     controller.moveSprite(mySprite, 100, 0)
@@ -157,6 +162,7 @@ function Respawn () {
 scene.onOverlapTile(SpriteKind.Player, assets.tile`tile5`, function (sprite, location) {
     if (controller.A.isPressed()) {
         mySprite.vy = -150
+    } else if (Level == 2) {
         GlitchJump1()
     }
 })
@@ -204,6 +210,8 @@ function GlitchJump1 () {
         mySprite.setImage(assets.image`myImage0`)
         GJ1 = 0
         GlitchA = 1
+    } else {
+    	
     }
 }
 let Music = 0
@@ -211,7 +219,6 @@ let NPC3: Sprite = null
 let NPC1: Sprite = null
 let NPC2: Sprite = null
 let GJ1 = 0
-let mySprite2: Sprite = null
 let GlitchA = 0
 let mySprite: Sprite = null
 let TT3 = 0
