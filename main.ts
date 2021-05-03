@@ -17,7 +17,7 @@ scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile0`, function (sprite, l
         game.showLongText("\"Congratulations on beating level 1!\" *You swear you heard a crash in your yard* \"Press A to Start Level 2!", DialogLayout.Full)
         game.splash("ERR404")
         game.splash("Restart Initiated:", "Please Retry")
-        tiles.placeOnTile(mySprite, tiles.getTileLocation(4, 4))
+        tiles.placeOnTile(mySprite, tiles.getTileLocation(1, 14))
         Level = 2
         GlitchA = 1
     } else if (Level == 2) {
@@ -35,7 +35,7 @@ scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile0`, function (sprite, l
         game.splash("Rest@rt 1niti@ted:", "Ple@se Retry")
         tiles.setTilemap(tilemap`level2`)
         mySprite = sprites.create(assets.image`myImage1`, SpriteKind.Player)
-        tiles.placeOnTile(mySprite, tiles.getTileLocation(4, 4))
+        tiles.placeOnTile(mySprite, tiles.getTileLocation(1, 14))
         GJ1 = 0
         GlitchA = 0
         Level = 3
@@ -67,7 +67,7 @@ scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile0`, function (sprite, l
         }
         NPC1.setImage(assets.image`myImage`)
         animation.stopAnimation(animation.AnimationTypes.All, NPC1)
-        tiles.placeOnTile(mySprite, tiles.getTileLocation(4, 4))
+        tiles.placeOnTile(mySprite, tiles.getTileLocation(1, 14))
         Level = 5
     } else if (Level == 5) {
         game.splash("ERR666")
@@ -157,7 +157,7 @@ function Respawn () {
     scene.cameraFollowSprite(mySprite)
     controller.moveSprite(mySprite, 100, 0)
     mySprite.ay = 480
-    tiles.placeOnTile(mySprite, tiles.getTileLocation(4, 4))
+    tiles.placeOnTile(mySprite, tiles.getTileLocation(1, 14))
 }
 scene.onOverlapTile(SpriteKind.Player, assets.tile`tile5`, function (sprite, location) {
     if (controller.A.isPressed()) {
@@ -173,7 +173,7 @@ function GameStart () {
     NPC1 = sprites.create(assets.image`slime1`, SpriteKind.NPC)
     NPC2 = sprites.create(assets.image`slime`, SpriteKind.NPC2)
     NPC3 = sprites.create(assets.image`myImage3`, SpriteKind.NPC3)
-    tiles.placeOnTile(mySprite, tiles.getTileLocation(4, 4))
+    tiles.placeOnTile(mySprite, tiles.getTileLocation(1, 14))
     scene.cameraFollowSprite(mySprite)
     controller.moveSprite(mySprite, 100, 0)
     mySprite.ay = 480
